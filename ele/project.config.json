@@ -10,8 +10,8 @@
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
-	"appid": "wx6d4ab8a9df77feb1",
-	"projectname": "ele",
+	"appid": "wxf001286a61a38e98",
+	"projectname": "%E9%AB%98%E4%BB%BFelm",
 	"condition": {
 		"search": {
 			"current": -1,
