@@ -9,7 +9,7 @@
         <p>商家</p>
         <dl v-for="(value,index) in SearchList" :key="index">
           <dt>
-            <img src="/static/images/user.png" alt="">
+            <img :src="'http://elm.cangdu.org/img/'+value.image_path" alt="">
           </dt>
           <dd>
             <p>{{value.name}}</p>
