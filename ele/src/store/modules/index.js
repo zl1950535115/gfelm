@@ -1,9 +1,10 @@
-import {getCateList, getCode, getLogin, getshoplist} from "@/api/index"
+import {getCateList, getCode, getLogin, getshoplist, getSearchList} from "@/api/index"
 
 const state = {
   code: '',
   list: [],
-  List:[]
+  List:[],
+  SearchList:[]
 }
 
 const mutations = {
@@ -17,6 +18,7 @@ const mutations = {
 }
 
 const actions = {
+  // nav列表
   async getCateList({commit},payload){
     let data = await getCateList();
     let len  = data.length
@@ -28,21 +30,26 @@ const actions = {
     let temp = data.slice(i*n, i*n+n);
     res.push(temp);
     }
-    console.log(res);
     commit('classif',{list:res})
   },
+  // 验证码
   async getCode({ commit }){
     let code = await getCode();
     commit('classif',{ code:code.code })
   },
+  // 登录
   async getLogin({commit},payload){
     let login = await getLogin(payload);
-    console.log(login)
   },
+  // 商品列表
   async getShoplist({commit},payload){
     let data = await getshoplist();
-    console.log('123...',data)
     commit('classif',{List:data})
+  },
+  // 搜索
+  async getSearchList({commit},payload){
+    let data = await getSearchList(payload);
+    commit('classif',{SearchList:data})
   }
 }
 

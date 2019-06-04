@@ -1,6 +1,6 @@
 <template>
-  <div class="wrap">
-    132
+  <div>
+    3
   </div>
 </template>
 
@@ -10,6 +10,6 @@ export default {
 }
 </script>
 
-<style lang='scss'>
-  
+<style>
+
 </style>

@@ -1,5 +1,7 @@
 <template>
-  <p>123</p>
+  <div>
+    wangziyin
+  </div>
 </template>
 
 <script>
@@ -8,6 +10,6 @@ export default {
 }
 </script>
 
-<style lang='scss'>
+<style>
 
 </style>
