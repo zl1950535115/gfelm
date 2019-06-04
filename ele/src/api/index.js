@@ -12,3 +12,11 @@ export let getSearchList = params=>{
     params
   })
 }
+
+//商家店铺
+export let getshopList = params=>{
+  return request.get({
+    url:"https://elm.cangdu.org/shopping/restaurant/1",
+    params
+  })
+}

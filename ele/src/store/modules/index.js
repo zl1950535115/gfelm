@@ -1,8 +1,9 @@
-import {getCateList,getSearchList} from "@/api/index"
+import {getCateList,getSearchList,getshopList} from "@/api/index"
 
 const state = {
   list: [1,2,3,4],
-  SearchList:[]
+  SearchList:[],
+  SearchShopList:[]
 }
 
 const mutations = {
@@ -18,6 +19,10 @@ const actions = {
   async getSearchList({commit},payload){
     let data = await getSearchList(payload);
     commit('upDataSearchList',data)
+  },
+  async getSearchShopList({commit},payload){
+    let data = await getshopList(payload);
+    console.log(data)
   }
 }
 

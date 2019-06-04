@@ -7,12 +7,12 @@
     <div v-if="flag" class='result_box'>
       <div class="result_true_box" v-if='trueOrFalse'>
         <p>商家</p>
-        <dl v-for="(value,index) in SearchList" :key="index">
+        <dl v-for="(value,index) in SearchList" :key="index" @click="goToSearchShop(value.id)">
           <dt>
             <img :src="'http://elm.cangdu.org/img/'+value.image_path" alt="">
           </dt>
           <dd>
-            <p>{{value.name}}</p>
+            <p>{{value.name}}</p>                        
             <p>月售 {{value.recent_order_num}} 单</p>
             <p><span>{{value.float_minimum_order_amount }} 元起送</span>/<span>距离{{value.distance}}</span></p>
           </dd>
@@ -61,6 +61,13 @@ export default {
       }
       
     },
+    goToSearchShop(valueId){
+      // console.log(valueId)
+      // pages/tab/search_shop/main
+      wx.navigateTo({
+        url: `../search_shop/main?id=${valueId}`
+      })
+    }
   },
 }
 </script>
