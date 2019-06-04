@@ -37,7 +37,7 @@
          <dt><img :src="image+item.image_path" alt=""></dt>
          <dd>
            <p><span>品牌</span><span>{{item.name}}</span></p>
-           <p>******4.7 <span>月售{{item.recent_order_num}}单</span></p>
+           <p>******{{item.rating}} <span>月售{{item.recent_order_num}}单</span></p>
            <p>￥20起送/配送费约 ￥5</p>
          </dd>
        </dl>
