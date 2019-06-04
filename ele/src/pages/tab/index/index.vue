@@ -1,36 +1,40 @@
 <template>
  <div class="box">  
     <div class="header">
-      <span><img src="../../../../static/images/serch_03.jpg" alt=""></span>
+      <span><img src="/static/images/serch_03.jpg" alt="" @click="gosearch"></span>
       <p>地理位置</p>
       <span @click="gologin">登录|注册</span>
     </div>
     <div class="nav">
-     <swiper indicator-dots="true" class="sWiper">
-    <swiper-item>
-    <ul>
-       <li v-for="(item,index) in list[0]" :key="index">
-         <img :src="img+item.image_url" alt="">
-         <span>{{item.title}}</span>
-       </li>
-     </ul>
-    </swiper-item>
-    <swiper-item>
+      <!-- <div v-if="list==false">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTA4MCA0OTAiPjxkZWZzPjxwYXRoIGlkPSJiIiBkPSJNMCAwaDEwODB2NDg5SDB6Ii8+PGZpbHRlciBpZD0iYSIgd2lkdGg9IjIwMCUiIGhlaWdodD0iMjAwJSIgeD0iLTUwJSIgeT0iLTUwJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij48ZmVPZmZzZXQgZHk9IjEiIGluPSJTb3VyY2VBbHBoYSIgcmVzdWx0PSJzaGFkb3dPZmZzZXRPdXRlcjEiLz48ZmVDb2xvck1hdHJpeCBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiB2YWx1ZXM9IjAgMCAwIDAgMC45MzMzMzMzMzMgMCAwIDAgMCAwLjkzMzMzMzMzMyAwIDAgMCAwIDAuOTMzMzMzMzMzIDAgMCAwIDEgMCIvPjwvZmlsdGVyPjwvZGVmcz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnPjx1c2UgZmlsbD0iIzAwMCIgZmlsdGVyPSJ1cmwoI2EpIiB4bGluazpocmVmPSIjYiIvPjx1c2UgZmlsbD0iI0ZGRiIgeGxpbms6aHJlZj0iI2IiLz48L2c+PGcgZmlsbD0iI0Y2RjZGNiI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzYgMzYpIj48cGF0aCBkPSJNOSAxMzloMTAwdjM0SDl6Ii8+PGVsbGlwc2UgY3g9IjU5IiBjeT0iNTkiIHJ4PSI1OSIgcnk9IjU5Ii8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0NiAzNikiPjxwYXRoIGQ9Ik05IDEzOWgxMDB2MzRIOXoiLz48ZWxsaXBzZSBjeD0iNTkiIGN5PSI1OSIgcng9IjU5IiByeT0iNTkiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjE2IDM2KSI+PHBhdGggZD0iTTkgMTM5aDEwMHYzNEg5eiIvPjxlbGxpcHNlIGN4PSI1OSIgY3k9IjU5IiByeD0iNTkiIHJ5PSI1OSIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4ODYgMzYpIj48cGF0aCBkPSJNOSAxMzloMTAwdjM0SDl6Ii8+PGVsbGlwc2UgY3g9IjU5IiBjeT0iNTkiIHJ4PSI1OSIgcnk9IjU5Ii8+PC9nPjwvZz48ZyBmaWxsPSIjRjZGNkY2Ij48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3NiAyNTIpIj48cGF0aCBkPSJNOSAxMzloMTAwdjM0SDl6Ii8+PGVsbGlwc2UgY3g9IjU5IiBjeT0iNTkiIHJ4PSI1OSIgcnk9IjU5Ii8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0NiAyNTIpIj48cGF0aCBkPSJNOSAxMzloMTAwdjM0SDl6Ii8+PGVsbGlwc2UgY3g9IjU5IiBjeT0iNTkiIHJ4PSI1OSIgcnk9IjU5Ii8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYxNiAyNTIpIj48cGF0aCBkPSJNOSAxMzloMTAwdjM0SDl6Ii8+PGVsbGlwc2UgY3g9IjU5IiBjeT0iNTkiIHJ4PSI1OSIgcnk9IjU5Ii8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg4NiAyNTIpIj48cGF0aCBkPSJNOSAxMzloMTAwdjM0SDl6Ii8+PGVsbGlwc2UgY3g9IjU5IiBjeT0iNTkiIHJ4PSI1OSIgcnk9IjU5Ii8+PC9nPjwvZz48L2c+PC9zdmc+
+" alt="" class="gujia">
+      </div> -->
+      <swiper indicator-dots="true" class="sWiper">
+        <swiper-item>
         <ul>
-            <li v-for="(item,index) in list[1]" :key="index">
+            <li v-for="(item,index) in list[0]" :key="index" @click="getlsit">
               <img :src="img+item.image_url" alt="">
               <span>{{item.title}}</span>
             </li>
           </ul>
-    </swiper-item>
-</swiper>
+        </swiper-item>
+        <swiper-item>
+            <ul>
+              <li v-for="(item,index) in list[1]" :key="index" @click="getlsit">
+                <img :src="img+item.image_url" alt="">
+                <span>{{item.title}}</span>
+              </li>
+            </ul>
+        </swiper-item>
+      </swiper>
     </div>
    <div class="box1">
       
    </div>
 
    <div class="section">
-     <p><img src="../../../../static/images/1_03.jpg" alt=""> 附近商家</p>
+     <p><img src="/static/images/1_03.jpg" alt=""> 附近商家</p>
      <div class="List"  v-for="(item,index) in List" :key="index">
        <dl>
          <dt><img :src="image+item.image_path" alt=""></dt>
@@ -48,6 +52,7 @@
      </div>
    </div>
  </div>
+  
 </template>
 
 <script>
@@ -75,6 +80,16 @@ export default {
     gologin(){
       wx.navigateTo({
         url: '/pages/login/main'
+      })
+    },
+    getlsit(){
+      wx.navigateTo({
+       url: '/pages/NavDetail/main',
+     })
+    },
+    gosearch(){
+      wx.switchTab({
+        url: '/pages/tab/search/main'
       })
     }
   },
@@ -203,4 +218,9 @@ export default {
    border: 1rpx solid #3190e8;
    color: #3190e8;
  }
+ .gujia {
+  width: 100%;
+  height: 200rpx;
+  animation: bounce 3s ease-out infinite;
+}
 </style>

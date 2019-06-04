@@ -6,7 +6,8 @@
     "pages/tab/my/main",
     "pages/tab/search/main",
     "pages/tab/search_shop/main",
-    "pages/tab/order/main"
+    "pages/tab/order/main",
+    "pages/NavDetail/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

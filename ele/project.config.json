@@ -12,6 +12,8 @@
 	"compileType": "miniprogram",
 	"appid": "wx2d978affdf7b3f54",
 	"projectname": "ele",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -48,6 +50,12 @@
 					"id": -1,
 					"name": "我的",
 					"pathName": "pages/tab/my/main"
+				},
+				{
+					"id": -1,
+					"name": "我的模块",
+					"pathName": "pages/NavDetail/main",
+					"scene": null
 				}
 			]
 		}
