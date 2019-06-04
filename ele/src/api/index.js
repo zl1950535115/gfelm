@@ -16,11 +16,14 @@ export let getLogin = params=>{
 export let getshoplist = params=>{
   return request.get('https://elm.cangdu.org/shopping/restaurants?latitude=40.041898&longitude=116.300096&offset=0&limit=20&extras[]=activities&keyword=&restaurant_category_id=&restaurant_category_ids[]=&order_by=&delivery_mode[]=')
 }
-
 // 获取搜索结果
 export let getSearchList = params=>{
   return request.get({
     url:'https://elm.cangdu.org/v4/restaurants?extras[]=restaurant_activity&geohash=40.041898,116.300096&type=search',
     params
   })
+}
+// 修改密码
+export let amendPwd = params=>{
+  return request.post('https://elm.cangdu.org/v2/changepassword',params)
 }

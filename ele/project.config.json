@@ -30,12 +30,24 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
 					"name": "首页",
-					"pathName": "pages/tab/index/main"
+					"pathName": "pages/tab/index/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "修改密码",
+					"pathName": "pages/resetpwd/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/tab/my/main"
 				}
 			]
 		}

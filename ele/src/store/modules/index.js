@@ -1,4 +1,4 @@
-import {getCateList, getCode, getLogin, getshoplist, getSearchList} from "@/api/index"
+import {getCateList, getCode, getLogin, getshoplist, getSearchList, amendPwd} from "@/api/index"
 
 const state = {
   code: '',
@@ -40,6 +40,7 @@ const actions = {
   // 登录
   async getLogin({commit},payload){
     let login = await getLogin(payload);
+    console.log('login...',login)
   },
   // 商品列表
   async getShoplist({commit},payload){
@@ -50,6 +51,11 @@ const actions = {
   async getSearchList({commit},payload){
     let data = await getSearchList(payload);
     commit('classif',{SearchList:data})
+  },
+  // 修改密码
+  async amendPwd({ commit },payload){
+    let data = await amendPwd(payload)
+    console.log('data...',data)
   }
 }
 

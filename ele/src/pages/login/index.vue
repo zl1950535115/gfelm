@@ -1,10 +1,5 @@
 <template>
   <div class="wrap">
-    <div class="header">
-      <img src="/static/images/zuojiantou_3.png" alt="">
-      <span>密码登录</span>
-      <span class="after"></span>
-    </div>
     <div class="section">
       <div class="list">
         <ul>
@@ -33,7 +28,7 @@
       <div class="login-wrap">
         <div class="login" @click="login">登录</div>
       </div>
-      <div class="reset">重置密码?</div>
+      <div class="reset" @click="goreset">重置密码?</div>
     </div>
   </div>
 </template>
@@ -78,7 +73,11 @@ export default {
         console.log(this.name,this.pwd,this.codes)
         this.getLogin({username:this.name,password:this.pwd,captcha_code:this.codes})
       }
-      
+    },
+    goreset(){
+      wx.navigateTo({
+        url: '/pages/resetpwd/main'
+      })
     }
   },
   mounted(){

@@ -3,7 +3,7 @@
     <div class="header">
       <span><img src="../../../../static/images/serch_03.jpg" alt=""></span>
       <p>地理位置</p>
-      <span>登录|注册</span>
+      <span @click="gologin">登录|注册</span>
     </div>
     <div class="nav">
      <swiper indicator-dots="true" class="sWiper">
@@ -23,7 +23,6 @@
             </li>
           </ul>
     </swiper-item>
-  </block>
 </swiper>
     </div>
    <div class="box1">
@@ -72,7 +71,12 @@ export default {
     ...mapActions({
       getCateList: 'index/getCateList',
       getShoplist:'index/getShoplist'
-    })
+    }),
+    gologin(){
+      wx.navigateTo({
+        url: '/pages/login/main'
+      })
+    }
   },
   mounted() {
     console.log('this.list...', this.list);
