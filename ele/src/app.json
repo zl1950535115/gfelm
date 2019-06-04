@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/resetpwd/main",
     "pages/login/main",
     "pages/tab/my/main",
     "pages/tab/index/main",

@@ -9,18 +9,18 @@
       <div class="list">
         <ul>
           <li>
-            <input type="text" placeholder="账号">
+            <input type="text" placeholder="账号" v-model="name">
           </li>
           <li>
-            <input type="password" name="" id="" placeholder="密码">
+            <input type="password" name="" id="" placeholder="密码" v-model="pwd">
           </li>
           <li>
-            <span>验证码</span>
+            <input type="text" placeholder="验证码" v-model="codes">
             <div>
-              <span>6666</span>
+              <img :src="code" alt="">
               <div>
                 <span>看不清</span>
-                <span>换一张</span>
+                <span @click="getCodes" style="color:#3190e8">换一张</span>
               </div>
             </div>
           </li>
@@ -31,7 +31,7 @@
         <span>注册过的用户可凭账号密码登录</span>
       </div>
       <div class="login-wrap">
-        <div class="login">登录</div>
+        <div class="login" @click="login">登录</div>
       </div>
       <div class="reset">重置密码?</div>
     </div>
@@ -39,8 +39,51 @@
 </template>
 
 <script>
-export default {
+import {mapState,mapActions} from 'vuex';
 
+export default {
+  data() {
+    return {
+      name:'',
+      pwd:'',
+      codes:''
+    }
+  },
+  computed: {
+    ...mapState({
+      code: state=>state.index.code
+    })
+  },
+  methods: {
+    ...mapActions({
+      getCode: 'index/getCode',
+      getLogin: 'index/getLogin'
+    }),
+    getCodes(){
+      this.getCode()
+    },
+    login(){
+      if(!this.name || !this.pwd || !this.codes){
+        wx.showModal({
+          title: '提示',
+          content: '请输入用户名/密码/验证码',
+          showCancel:false,
+          success (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+            }
+          }
+        })
+      }else{
+        console.log(this.name,this.pwd,this.codes)
+        this.getLogin({username:this.name,password:this.pwd,captcha_code:this.codes})
+      }
+      
+    }
+  },
+  mounted(){
+    this.getCode()
+  }
 }
 </script>
 
@@ -80,20 +123,27 @@ export default {
       li{
         padding:20rpx 30rpx;
         box-sizing: border-box;
+        border-bottom:1rpx solid #ccc;
         &:last-child{
           display:flex;
           justify-content: space-between;
           align-items: center;
+          border-bottom:0;
           >div{
+            width:40%;
             display: flex;
             justify-content: space-around;
             align-items: center; 
+            >img{
+              width: 145rpx;
+              height: 96rpx;
+            }
             >div{
               display: flex;
               flex-direction:column;
               font-size:30rpx;
               >span{
-                padding:5rpx 30rpx;
+                padding:5rpx 0;
                 box-sizing: border-box;
               }
             }
