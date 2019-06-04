@@ -1,5 +1,5 @@
 <template>
-  <p>何运正</p>
+  <p @click="getlsit">点击进入何运正的页面</p>
 </template>
 
 <script>
@@ -14,7 +14,13 @@ export default {
   methods: {
     ...mapActions({
       getCateList: 'index/getCateList'
-    })
+    }),
+    getlsit(){
+      wx.navigateTo({
+       url: '../../NavDetail/main',
+     });
+       
+    }
   },
   mounted() {
     console.log('this.list...', this.list);
