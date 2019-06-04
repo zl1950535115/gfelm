@@ -4,7 +4,7 @@
       <input placeholder="请输入商家或美食名称" v-model="message" />
       <button @click='submit'>提交</button>
     </div>
-    <div v-if="flag">
+    <div v-if="flag" class='result_box'>
       <div class="result_true_box" v-if='trueOrFalse'>
         <p>商家</p>
         <dl v-for="(value,index) in SearchList" :key="index">
@@ -69,9 +69,9 @@ export default {
   .search_box{
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    overflow: auto;
+    // display: flex;
+    // flex-direction: column;
     background: #F5F5F5;
   }
   .input_box{
@@ -88,6 +88,7 @@ export default {
       border-radius: 10rpx;
       margin-left: 3%;
       padding: 0 14rpx;
+      box-sizing: border-box;
       font-size:32rpx;
     }
     button{
@@ -100,6 +101,10 @@ export default {
       line-height: 70rpx;
     }
   }
+  .result_box{
+    flex: 1;
+    // overflow: auto;
+  }
   .result_false_box{
     width: 100%;
     background: #fff;
@@ -109,8 +114,8 @@ export default {
     font-size: 34rpx;
   }
   .result_true_box{
-    flex: 1;
-    overflow: auto;
+    width: 100%;
+    height: 100%;
     background: #F5F5F5;
     >p{
       width: 100%;
