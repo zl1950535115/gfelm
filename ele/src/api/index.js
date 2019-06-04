@@ -13,3 +13,7 @@ export let getCode = params=>{
 export let getLogin = params=>{
   return request.post('https://elm.cangdu.org/v2/login',params)
 }
+// 商品列表
+export let getshoplist = params=>{
+  return request.get('https://elm.cangdu.org/shopping/restaurants?latitude=40.041898&longitude=116.300096&offset=0&limit=20&extras[]=activities&keyword=&restaurant_category_id=&restaurant_category_ids[]=&order_by=&delivery_mode[]=')
+}
