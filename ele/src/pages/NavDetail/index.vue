@@ -35,7 +35,7 @@
             </li>
             <li class="title_box">
               <div class="info">
-                <p class="star">💜 💜 💜 💜 💜</p>
+                <p class="star">⭐️ ⭐️ ⭐️ ⭐️ ⭐️</p>
                 <p class="reain">{{item.rating}}</p>
                 <p class="month_num">月售{{item.recent_order_num}}单</p>
               </div>
@@ -46,7 +46,7 @@
             </li>
             <li class="time_price">
               <div class="info">
-                <p class="star">￥12元起送</p>
+                <p class="star">￥{{item.float_minimum_order_amount}}元起送</p>
                 <p class="price">配送费约￥5</p>
               </div>
               <div class="distance">
@@ -122,7 +122,11 @@
     </div>
     <div :class="ind==1?'mark_s':'mark'">
       <div :class="ind==1?'mark_box_animate':'mark_box'">
-        <div class="LeftBOX">第二个盒子</div>
+        <div class="LeftBOX">
+          <ul class="LeftBOXs">
+            <li class="Sort" v-for="(item,index) in  sortFun" :key="index" :style="{color:index==downind?'#3190e8':''}" @click="sorts(index)">{{item.title}}</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div :class="ind==2?'mark_s':'mark'">
@@ -134,7 +138,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions,mapMutations} from "vuex";
 export default {
   data() {
     return {
@@ -142,7 +146,19 @@ export default {
       ind: null,
       flag: false,
       listind: null,
-      rightlist:[]
+      rightlist:[],
+      sortFun:[{
+        title:'智能排序'
+      },{
+        title:'距离最近'
+      },{
+        title:'起送价最低'
+      },{
+        title:'配送速度最快'
+      },{
+        title:'评分最高'
+      }],
+      downind:null
     };
   },
   computed: {
@@ -152,6 +168,24 @@ export default {
     })
   },
   methods: {
+    ...mapMutations({
+      Theclosest:'Navlist/Theclosest',
+      song:'Navlist/song'
+    }),
+    sorts(index){
+      this.downind=index
+      switch (index) {
+        case 1:
+          this.Theclosest()
+          break;
+       case 2:
+          this.song()
+          break;
+        default:
+          break;
+      }
+      this.ind=null
+    },
     revers(item){
       this.arr[0]=item.name 
       wx.setNavigationBarTitle({
@@ -189,9 +223,19 @@ export default {
 </script>
 
 <style>
+.LeftBOXs li:last-child{
+  border:none;
+}
+.Sort{
+  padding:30rpx;
+  font-size:28rpx;
+  color:#666;
+  border-bottom:1rpx solid #ccc;
+  margin-left:40rpx;
+}
 .LeftBOX{
   width:100%;
-  background-color:red;
+  background-color:white;
 }
 .lisver{
   border-bottom:1rpx solid #eee;

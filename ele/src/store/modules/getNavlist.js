@@ -3,6 +3,20 @@ const state = {
     list:[],
     toplists:[]
 }
+const mutations={
+    Theclosest(){
+        var ok=state.list.sort((a,b)=>{
+           return parseInt(a.distance)-parseInt(b.distance)
+        })
+       state.list=ok
+    },
+    song(){
+        var ok=state.list.sort((a,b)=>{
+           return a.float_minimum_order_amount-b.float_minimum_order_amount
+        })
+       state.list=ok
+    }
+}
 const actions = {
         async nav(){
             var a=await nav()
@@ -21,5 +35,6 @@ const actions = {
 export default {
     namespaced: true,
     state,
-    actions
+    actions,
+    mutations
 }
