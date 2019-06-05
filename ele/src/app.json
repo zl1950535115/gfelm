@@ -2,9 +2,11 @@
   "pages": [
     "pages/tab/search/main",
     "pages/tab/index/main",
+    "pages/resetpwd/main",
+    "pages/login/main",
+    "pages/tab/my/main",
     "pages/tab/search_shop/main",
-    "pages/tab/order/main",
-    "pages/tab/my/main"
+    "pages/tab/order/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -10,8 +10,8 @@
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
-	"appid": "wxf001286a61a38e98",
-	"projectname": "%E9%AB%98%E4%BB%BFelm",
+	"appid": "wx2d978affdf7b3f54",
+	"projectname": "ele",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -21,13 +21,23 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/tab/index/main"
+				}
+			]
 		}
 	}
 }
