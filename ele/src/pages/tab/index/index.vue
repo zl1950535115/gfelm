@@ -32,9 +32,9 @@
 
    <div class="section">
      <p><img src="../../../../static/images/1_03.jpg" alt=""> 附近商家</p>
-     <div class="List"  v-for="(item,index) in List" :key="index">
+     <div class="List"  v-for="(item,index) in List" :key="index" @click="shop(item.id)">
        <dl>
-         <dt><img :src="image+item.image_path" alt=""></dt>
+         <dt><img :src="image+item.image_path" alt="" mode='widthFix'></dt>
          <dd>
            <p><span>品牌</span><span>{{item.name}}</span></p>
            <p>******{{item.rating}} <span>月售{{item.recent_order_num}}单</span></p>
@@ -72,7 +72,13 @@ export default {
     ...mapActions({
       getCateList: 'index/getCateList',
       getShoplist:'index/getShoplist'
-    })
+    }),
+    shop(id){
+      console.log(id)
+      wx.navigateTo({
+      url:'/pages/shoping/main?id='+id
+     }) 
+    }
   },
   mounted() {
     console.log('this.list...', this.list);
@@ -87,6 +93,7 @@ export default {
    width: 100%;
    height: 100%;
    font-size: 24rpx;
+   overflow-y: auto;
  }
  .box1{
    width: 100%;

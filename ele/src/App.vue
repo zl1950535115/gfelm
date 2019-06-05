@@ -31,6 +31,10 @@ export default {
 </script>
 
 <style>
+  page{
+    width: 100%;
+    height: 100%;
+  }
 .container {
   height: 100%;
   display: flex;
@@ -46,5 +50,8 @@ export default {
   -moz-transition: width 2s;
   -webkit-transition: width 2s;
   -o-transition: width 2s;
+}
+page{
+  overflow-y: auto
 }
 </style>

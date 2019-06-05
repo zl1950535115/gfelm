@@ -1,8 +1,10 @@
-import {getCateList,getshoplist} from "@/api/index"
+import {getCateList,getshoplist,Detail,shopping} from "@/api/index"
 
 const state = {
   list: [],
-  List:[]
+  List:[],
+  Details:{},
+  shopinglist:[]
 }
 
 const mutations = {
@@ -27,13 +29,22 @@ const actions = {
     let temp = data.slice(i*n, i*n+n);
     res.push(temp);
     }
-    console.log(res);
+    // console.log(res);
     commit('elm',{list:res})
   },
   async getShoplist({commit},payload){
-    let data = await getshoplist();
-    console.log('123...',data)
+    let data = await getshoplist(); 
+    // console.log('123...',data)
     commit('elm',{List:data})
+  },
+  async detail({commit},payload){
+    let data = await Detail(payload)
+    console.log('123...',data)
+    commit('elm',{Details:data})
+  },
+  async Shopping({commit},payload){
+    let data = await shopping(payload)
+    commit('elm',{shopinglist:data})
   }
 }
 
